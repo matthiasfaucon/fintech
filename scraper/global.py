@@ -2,27 +2,46 @@ import time
 from pytrends.request import TrendReq
 from datetime import datetime, timedelta
 import feedparser
+from textblob import TextBlob
 
 # Fonction pour extraire le nombre de mentions du mot "bitcoin" dans un flux RSS
 def count_bitcoin_mentions(url):
     bitcoin_count = 0
     # Charger le flux RSS
     feed = feedparser.parse(url)
+
     # Parcourir les entrées du flux RSS
     for entry in feed.entries:
         # Vérifier si le mot "bitcoin" est présent dans le titre
         if "bitcoin" in entry.title.lower():
             bitcoin_count += 1
+            # Analyse de sentiment pour le titre
+            blob = TextBlob(entry.title)
+            sentiment = blob.sentiment
+            print(entry.title.lower())
+            print(f"Sentiment pour le titre: {sentiment}")
+            
         # Vérifier si le mot "bitcoin" est présent dans la description (summary)
         elif hasattr(entry, 'summary') and "bitcoin" in entry.summary.lower():
             bitcoin_count += 1
+            # Analyse de sentiment pour la description
+            print(entry.summary.lower())
+            blob = TextBlob(entry.summary)
+            sentiment = blob.sentiment
+            print(f"Sentiment pour la description: {sentiment}")
     return bitcoin_count
 
 # Fonction pour obtenir le nombre de mentions de "bitcoin" à partir de Google Trends
 def get_google_trends_occurrence(words):
     # Construire la requête pour aujourd'hui
+    pytrends = TrendReq(hl='en-US', tz=360, timeout=(10,25), retries=2, backoff_factor=0.1, requests_args={'verify':False})
+
+    # Construction de la requête de tendance d'intérêt au fil du temps
     pytrends.build_payload(words, timeframe="now 1-H", geo='')
+
+    # Récupérer les données d'intérêt au fil du temps
     data = pytrends.interest_over_time()
+
     # Récupérer la valeur d'intérêt pour "bitcoin" à l'instant actuel
     bitcoin_interest_google_trends = data["bitcoin"].iloc[-1]
     bitcoin_count_google_trends = sum(data["bitcoin"])
@@ -30,6 +49,7 @@ def get_google_trends_occurrence(words):
     print(f"Le mot 'bitcoin' est mentionné {bitcoin_interest_google_trends} fois dans Google Trends.")
     print(data)
     return bitcoin_count_google_trends
+
 
 # Liste des liens RSS
 tabLinks = [
@@ -132,3 +152,9 @@ total_mentions += bitcoin_count_google_trends
 
 # Afficher la somme totale
 print(f"Le mot 'bitcoin' est mentionné {total_mentions} fois au total.")
+
+# Analyse de sentiment avec TextBlob
+text = "Le mot 'bitcoin' est mentionné {} fois au total.".format(total_mentions)
+
+# Affichage des résultats de l'analyse de sentiment
+print("Texte:", text)
