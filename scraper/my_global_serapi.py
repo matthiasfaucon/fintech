@@ -29,7 +29,9 @@ def count_mentions(url, keyword, tabSentiments):
             blob = TextBlob(entry.summary)
             sentiment = blob.sentiment
             tabSentiments.append(sentiment)
+            print(tabSentiments)
 
+    print(mentions_count)
     # Retourner le nombre de mentions
     return mentions_count
 
@@ -39,7 +41,7 @@ def get_google_trends_occurrence(keyword):
     params = {
         "engine": "google_trends",
         "tz": "-12",
-        "q": "bitcoin",
+        "q": keyword,
         "geo": "FR",
         "cat": "1138",
         "date": "now 1-H",
@@ -49,8 +51,8 @@ def get_google_trends_occurrence(keyword):
 
     search = GoogleSearch(params)
     results = search.get_dict()
+    print(results)
     data_google_trends = results['interest_over_time']['timeline_data']
-    print(data_google_trends[0]['values'][0]['value'])
     # Assuming 'data_google_trends' is your list of dictionaries
     keyword_count_google_trends = sum(int(entry['values'][0]['value']) if entry['values'][0]['value'].isdigit() else 0 for entry in data_google_trends)
 
@@ -142,6 +144,7 @@ def get_data_for_keywords(keywords):
 
     # Parcourir chaque mot clé
     for keyword in keywords:
+        print(keyword)
         keyword_count_rss = 0
         # Parcourir chaque lien RSS
         for url in tabLinks:
@@ -152,6 +155,8 @@ def get_data_for_keywords(keywords):
 
         # Ajouter le nombre de mentions du mot clé à partir de Google Trends à la somme totale
         total_mentions = keyword_count_rss + keyword_count_google_trends
+
+        print("Total mentions: " + str(total_mentions))
 
         # Analyse de sentiment avec TextBlob
         average_polarity = 0
@@ -170,18 +175,20 @@ def get_data_for_keywords(keywords):
                 'google_trends': data_google_trends  # Convertir DataFrame en dictionnaire
             })
         else:
-            results[keyword] = {
+            results[keyword] = [{
                 'mentions': total_mentions,
                 'polarity': average_polarity,
                 'subjectivity': average_subjectivity,
                 'google_trends': data_google_trends  # Convertir DataFrame en dictionnaire
-            }
+            }]
 
     return results
 
 def getDatas():
     # Liste des mots clés à analyser
     keywords_to_analyze = ["bitcoin", "gold", "petrol"]
+
+    print("coucou")
 
     # Exécutez la fonction
     results = get_data_for_keywords(keywords_to_analyze)
