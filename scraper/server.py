@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-import my_global_copy
+import my_global_serapi
 
 app = Flask(__name__)
 
@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/api/data', methods=['GET'])
 def get_api_data():
     # Logique de traitement des données
-    data = my_global_copy.getDatas()
+    data = my_global_serapi.getDatas()
     return jsonify({'data': data})
     
 if __name__ == '__main__':
