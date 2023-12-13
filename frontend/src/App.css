@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+body{
+  font-family: 'Abel', sans-serif;
+  color: #FFFFFF;
+  background-color: var(--base-darker-grey, #141518);
+  background: url("./assets/BGPattern.png")  ;
+  background-size: cover;
+  background-color: #141518;
+}
+
+nav{
+  background: transparent;
+}
+
+footer{
+  min-height: 300vh;
+}
+
+.container{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.h1-title{
+  font-size: 61px;
+}
+
+.h1-subtitle{
+  font-size: 18px;
+  line-height: 27px;
+  font-feature-settings: 'clig' off, 'liga' off;
+  text-align: center;
+}
+
+.h2-title{
+  font-size: 49px;
+  line-height: 110%;
+  text-align: center;
+}
+
+.h2-subtitle{
+  font-size: 16px;
+  line-height: 27px;
+  font-feature-settings: 'clig' off, 'liga' off;
+  text-align: center;
+}
+
+
+.card-container{
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.card{
+  padding-top: 32px;
+}
+
+.card img{
+  margin-bottom: 30px;
+}
+
+.flex-20{
+  flex: 0 0 40%;
+}
+
+.flex-50{
+  flex: 0 0 50%;
+}
+
+.img-last{
+  max-width: 830px;
+}
+
+.button-action-store{
+  background: transparent !important;
+  border-radius: 100px !important;
+  padding: 16px, 32px, 16px, 32px ;
+  border: 1px #FFFFFF ;
+}
+
+.reasurance-button{
+  padding: 5px;
+  border-radius: 12px;
+  background: var(--base-dark-transparent, rgba(47, 50, 65, 0.50));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  padding: 2rem;
+
+}
+
+.title-or{
+  color :#FFD700;
+  font-weight: bold;
+}
+
+
+.bg-colorPrimary{
+  background-color: #FFD700  !important;
+  color: black !important;
+}
+
+.card-trend{
+  background: var(--base-dark-transparent, rgba(47, 50, 65, 0.50));
+  backdrop-filter: blur(2px);
+}
+
+.controls{
+  display: none;
+}
+
+.img-reasurance{
+  width: 100px;
+  min-height: 30px;
+}
+
+/* Small devices (576px and up) */
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px !important; 
+  }
+}
+
+/* Medium devices (768px and up) */
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px !important; 
+  }
+}
+
+/* Large devices (992px and up) */
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px !important; 
+  }
+}
+
+/* Extra large devices (1200px and up) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px !important; 
+  }
+}
