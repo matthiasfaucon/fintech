@@ -186,7 +186,8 @@ def get_data_for_keywords(keywords):
 
 def getDatas():
     # Liste des mots clés à analyser
-    keywords_to_analyze = ["bitcoin", "gold", "petrol"]
+    # keywords_to_analyze = ["bitcoin", "gold", "petrol"]
+    keywords_to_analyze = ["bitcoin"]
 
     print("coucou")
 
