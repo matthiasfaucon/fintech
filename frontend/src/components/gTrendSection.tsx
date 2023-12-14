@@ -96,55 +96,59 @@ const GraphiqueActions = () => {
   }
 
   return (
-    <div className="flex flex-col bg-[#242430] p-10">
-      <div class="flex justify-between">
-        <div>
-          <h1 class="text-2xl font-medium">Google Trends</h1>
+    <div className='text-center	section'>
+      <h1 className="h2-title leading-none tracking-tight text-gray-900 dark:text-white pb-5">Maîtrisez le marché</h1>
+      <p className="pb-10 text-lg font-normal text-[#E5E6ED] lg:text-2xl sm:px-16 xl:px-48 dark:text-gray-400">Notre tableau de bord transmute données<br /> complexes en stratégies de trading gagnantes</p>
+      <div className="flex flex-col bg-[#242430] p-10">
+        <div class="flex justify-between">
+          <div>
+            <h1 class="text-2xl font-medium">Google Trends</h1>
+          </div>
+          <div className="min-w-min flex self-end mb-4">
+            <select
+              className="bg-[#3E3F47] px-3 py-1 outline-none rounded-md text-white"
+              value={selectedType}
+              onChange={(e) => handleTypeChange(e.target.value)}
+            >
+              <option value="bitcoin">Bitcoin</option>
+              <option value="gold">Gold</option>
+              <option value="petrol">Petrol</option>
+              <option value="s&p 500">S&P 500</option>
+            </select>
+          </div>
         </div>
-        <div className="min-w-min flex self-end mb-4">
-          <select
-            className="bg-[#3E3F47] px-3 py-1 outline-none rounded-md text-white"
-            value={selectedType}
-            onChange={(e) => handleTypeChange(e.target.value)}
-          >
-            <option value="bitcoin">Bitcoin</option>
-            <option value="gold">Gold</option>
-            <option value="petrol">Petrol</option>
-            <option value="s&p 500">S&P 500</option>
-          </select>
-        </div>
+        <XYChart
+          height={400}
+          xScale={{ type: 'time' }}
+          yScale={{ type: 'linear' }}
+          margin={{ top: 40, right: 40, bottom: 60, left: 60 }}
+          theme={
+            customTheme
+          }
+        >
+          <Grid columns={false} numTicks={5} />
+          <Axis orientation="bottom" numTicks={4} />
+          <Axis orientation="left" numTicks={4} />
+          <AreaSeries data={transformedData[selectedType]} xAccessor={(d) => d.date} yAccessor={(d) => d.value} />
+          <Tooltip
+            showHorizontalCrosshair={false}
+            showVerticalCrosshair={true}
+            snapTooltipToDatumX={true}
+            snapTooltipToDatumY={true}
+            renderTooltip={({ tooltipData }) => {
+              if (!tooltipData) return null;
+              const date = tooltipData.nearestDatum?.datum?.date.toLocaleString();
+              const value = tooltipData.nearestDatum?.datum?.value;
+              return (
+                <div style={{ backgroundColor: '#fff', padding: '8px', border: '1px solid #fff' }}>
+                  <p>Date: {date}</p>
+                  <p>Value: {value}</p>
+                </div>
+              );
+            }}
+          />
+        </XYChart>
       </div>
-      <XYChart
-        height={400}
-        xScale={{ type: 'time' }}
-        yScale={{ type: 'linear' }}
-        margin={{ top: 40, right: 40, bottom: 60, left: 60 }}
-        theme={
-          customTheme
-        }
-      >
-        <Grid columns={false} numTicks={5} />
-        <Axis orientation="bottom" numTicks={4} />
-        <Axis orientation="left" numTicks={4} />
-        <AreaSeries data={transformedData[selectedType]} xAccessor={(d) => d.date} yAccessor={(d) => d.value} />
-        <Tooltip
-          showHorizontalCrosshair={false}
-          showVerticalCrosshair={true}
-          snapTooltipToDatumX={true}
-          snapTooltipToDatumY={true}
-          renderTooltip={({ tooltipData }) => {
-            if (!tooltipData) return null;
-            const date = tooltipData.nearestDatum?.datum?.date.toLocaleString();
-            const value = tooltipData.nearestDatum?.datum?.value;
-            return (
-              <div style={{ backgroundColor: '#fff', padding: '8px', border: '1px solid #fff' }}>
-                <p>Date: {date}</p>
-                <p>Value: {value}</p>
-              </div>
-            );
-          }}
-        />
-      </XYChart>
     </div>
   );
 };
