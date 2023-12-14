@@ -13,7 +13,7 @@ type City = 'San Francisco' | 'New York' | 'Austin';
 export default function Example({ height }: XYChartProps) {
   return (
 
-    <div>
+    <div className='section'>
         <div className='text-center	'>
             <h2 className="h2-title mb-4  leading-none tracking-tight text-gray-900  dark:text-white"><span className='title-or'>Maîtrisez</span> le marché</h2>
             <p className="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">Notre tableau de bord transmute données complexes en stratégies de trading gagnantes</p> 
@@ -79,7 +79,7 @@ export default function Example({ height }: XYChartProps) {
         XYChart,
       }) => (
         <div>
-          
+
 
         <XYChart
           theme={theme}

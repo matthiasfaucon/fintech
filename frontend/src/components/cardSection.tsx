@@ -4,7 +4,7 @@ import cardimg1 from "../assets/card1.png";
 const CardSection = () => {
 
   return (
-    <div className='text-center	'>
+    <div className='text-center	section'>
         <h1 className="h2-title mb-4  leading-none tracking-tight text-gray-900  dark:text-white"><span className="title-or">Découvrez ProTrade :</span>  Votre Atout Stratégique dans le Trading</h1>
         <p className="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">Rejoignez la communauté ProTrade dès aujourd'hui et transformez votre façon de trader ! </p>
         

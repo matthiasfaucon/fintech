@@ -2,7 +2,7 @@
 
 const PayoutSection = () => {
   return (
-    <div className='text-center	'>
+    <div className='text-center section	'>
         <h2 className="h2-title mb-4  leading-none tracking-tight text-gray-900  dark:text-white "><span className="title-or">Choisissez l'excellence </span>avec notre sélection d'actions <br/>  à fort potentiel d'achat</h2>
         
 

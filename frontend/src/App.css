@@ -19,8 +19,8 @@ nav{
   background: transparent;
 }
 
-footer{
-  min-height: 300vh;
+.section{
+  margin-top: 5rem;
 }
 
 .container{
@@ -28,6 +28,8 @@ footer{
   display: flex;
   flex-direction: column;
   gap: 5rem;
+  padding-bottom: 7rem;
+  padding-top: 7rem;
 }
 
 .h1-title{
