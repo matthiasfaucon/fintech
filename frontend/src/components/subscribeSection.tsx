@@ -14,7 +14,7 @@ const SubscribeSection = () => {
             pour une expérience d'investissement encore plus enrichissante.
           </p>
         </div>
-        <div className="flex flex-row justify-center gap-10 text-center items-center pt-14">
+        <div className="flex flex-row justify-center flex-wrap gap-10 text-center items-center pt-14">
         
 
 <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">

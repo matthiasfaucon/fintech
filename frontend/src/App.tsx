@@ -19,7 +19,7 @@ function App() {
 
       <FirstSection/>
       <CardSection />
-      <Example  height={400} width={100}/>
+      <Example  />
       <PayoutSection />
       <ReasuranceSection />
       <MediaSection />
