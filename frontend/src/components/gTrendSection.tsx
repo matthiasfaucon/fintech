@@ -55,7 +55,7 @@ const GraphiqueActions = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className='flex justify-center section'><span className="loader"></span></div>;
   }
 
   if (error) {

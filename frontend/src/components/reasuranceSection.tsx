@@ -4,7 +4,7 @@ import engagment from "../assets/engagment.png"
 
 const ReasuranceSection = () => {
     return (
-            <div className="flex flex-row items-center gap-14 section">
+            <div className="flex flex-row items-center gap-14 reasurance-section section">
                 <div className="flex-20  ">
                     <img src={reasuranceBigImage} alt="" />
                 </div>
