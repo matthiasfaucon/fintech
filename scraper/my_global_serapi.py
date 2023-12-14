@@ -37,10 +37,14 @@ def count_mentions(url, keyword, tabSentiments):
 
 # Fonction pour obtenir le nombre de mentions d'un mot clé à partir de Google Trends
 def get_google_trends_occurrence(keyword):
+    
+    heure_actuelle = datetime.now().time()
+    # Affichez l'heure
+    print("L'heure actuelle est :", heure_actuelle)
     # Construire la requête pour aujourd'hui
     params = {
         "engine": "google_trends",
-        "tz": "-12",
+        "tz": "-1",
         "q": keyword,
         "geo": "FR",
         "cat": "1138",
@@ -92,45 +96,45 @@ def get_data_for_keywords(keywords):
         "https://fr.investing.com/rss/286.rss",
         "https://fr.investing.com/rss/290.rss",
 
-        "https://fr.investing.com/rss/stock.rss",
-        "https://fr.investing.com/rss/stock_Technical.rss",
-        "https://fr.investing.com/rss/stock_Fundamental.rss",
-        "https://fr.investing.com/rss/stock_Opinion.rss",
-        "https://fr.investing.com/rss/stock_stock_picks.rss",
-        "https://fr.investing.com/rss/stock_Stocks.rss",
-        "https://fr.investing.com/rss/stock_Indices.rss",
-        "https://fr.investing.com/rss/stock_Futures.rss",
-        "https://fr.investing.com/rss/stock_Options.rss",
+        # "https://fr.investing.com/rss/stock.rss",
+        # "https://fr.investing.com/rss/stock_Technical.rss",
+        # "https://fr.investing.com/rss/stock_Fundamental.rss",
+        # "https://fr.investing.com/rss/stock_Opinion.rss",
+        # "https://fr.investing.com/rss/stock_stock_picks.rss",
+        # "https://fr.investing.com/rss/stock_Stocks.rss",
+        # "https://fr.investing.com/rss/stock_Indices.rss",
+        # "https://fr.investing.com/rss/stock_Futures.rss",
+        # "https://fr.investing.com/rss/stock_Options.rss",
 
-        "https://fr.investing.com/rss/commodities.rss",
-        "https://fr.investing.com/rss/commodities_Technical.rss",
-        "https://fr.investing.com/rss/commodities_Fundamental.rss",
-        "https://fr.investing.com/rss/commodities_Opinion.rss",
-        "https://fr.investing.com/rss/commodities_Strategy.rss",
-        "https://fr.investing.com/rss/commodities_Metals.rss",
-        "https://fr.investing.com/rss/commodities_Energy.rss",
-        "https://fr.investing.com/rss/commodities_Agriculture.rss",
+        # "https://fr.investing.com/rss/commodities.rss",
+        # "https://fr.investing.com/rss/commodities_Technical.rss",
+        # "https://fr.investing.com/rss/commodities_Fundamental.rss",
+        # "https://fr.investing.com/rss/commodities_Opinion.rss",
+        # "https://fr.investing.com/rss/commodities_Strategy.rss",
+        # "https://fr.investing.com/rss/commodities_Metals.rss",
+        # "https://fr.investing.com/rss/commodities_Energy.rss",
+        # "https://fr.investing.com/rss/commodities_Agriculture.rss",
 
-        "https://fr.investing.com/rss/bonds.rss",
-        "https://fr.investing.com/rss/bonds_Technical.rss",
-        "https://fr.investing.com/rss/bonds_Fundamental.rss",
-        "https://fr.investing.com/rss/bonds_Opinion.rss",
-        "https://fr.investing.com/rss/bonds_Strategy.rss",
-        "https://fr.investing.com/rss/bonds_Government.rss",
-        "https://fr.investing.com/rss/bonds_Corporate.rss"
+        # "https://fr.investing.com/rss/bonds.rss",
+        # "https://fr.investing.com/rss/bonds_Technical.rss",
+        # "https://fr.investing.com/rss/bonds_Fundamental.rss",
+        # "https://fr.investing.com/rss/bonds_Opinion.rss",
+        # "https://fr.investing.com/rss/bonds_Strategy.rss",
+        # "https://fr.investing.com/rss/bonds_Government.rss",
+        # "https://fr.investing.com/rss/bonds_Corporate.rss"
 
-        "https://fr.investing.com/rss/news.rss",
-        "https://fr.investing.com/rss/news_2.rss",
-        "https://fr.investing.com/rss/news_285.rss",
-        "https://fr.investing.com/rss/news_301.rss",
-        "https://fr.investing.com/rss/news_462.rss",
-        "https://fr.investing.com/rss/news_1.rss",
-        "https://fr.investing.com/rss/news_477.rss",
-        "https://fr.investing.com/rss/news_11.rss",
-        "https://fr.investing.com/rss/news_25.rss",
-        "https://fr.investing.com/rss/news_95.rss",
-        "https://fr.investing.com/rss/news_14.rss",
-        "https://fr.investing.com/rss/news_287.rss",
+        # "https://fr.investing.com/rss/news.rss",
+        # "https://fr.investing.com/rss/news_2.rss",
+        # "https://fr.investing.com/rss/news_285.rss",
+        # "https://fr.investing.com/rss/news_301.rss",
+        # "https://fr.investing.com/rss/news_462.rss",
+        # "https://fr.investing.com/rss/news_1.rss",
+        # "https://fr.investing.com/rss/news_477.rss",
+        # "https://fr.investing.com/rss/news_11.rss",
+        # "https://fr.investing.com/rss/news_25.rss",
+        # "https://fr.investing.com/rss/news_95.rss",
+        # "https://fr.investing.com/rss/news_14.rss",
+        # "https://fr.investing.com/rss/news_287.rss",
 
         "https://fr.investing.com/rss/central_banks.rss",
     ]
@@ -167,29 +171,20 @@ def get_data_for_keywords(keywords):
             average_subjectivity = sum(sentiment.subjectivity for sentiment in tab_sentiments[keyword]) / len(tab_sentiments[keyword])
 
         # Ajouter les résultats à la liste
-        if keyword in results:
-            results[keyword].append({
-                'mentions': total_mentions,
-                'polarity': average_polarity,
-                'subjectivity': average_subjectivity,
-                'google_trends': data_google_trends  # Convertir DataFrame en dictionnaire
-            })
-        else:
-            results[keyword] = [{
-                'mentions': total_mentions,
-                'polarity': average_polarity,
-                'subjectivity': average_subjectivity,
-                'google_trends': data_google_trends  # Convertir DataFrame en dictionnaire
-            }]
+        results[keyword] = [{
+            'mentions': total_mentions,
+            'polarity': average_polarity,
+            'subjectivity': average_subjectivity,
+            'google_trends': data_google_trends  # Convertir DataFrame en dictionnaire
+        }]
 
     return results
 
 def getDatas():
     # Liste des mots clés à analyser
     # keywords_to_analyze = ["bitcoin", "gold", "petrol"]
-    keywords_to_analyze = ["bitcoin"]
-
-    print("coucou")
+    keywords_to_analyze = ["bitcoin", "gold"]
+    # keywords_to_analyze = ["bitcoin"]
 
     # Exécutez la fonction
     results = get_data_for_keywords(keywords_to_analyze)
