@@ -9,7 +9,7 @@ const Navbar = () => {
   <a href="https://flowbite.com/" className="flex items-center space-x-3 rtl:space-x-reverse">
       <img src={logoNav} className="h-12" alt=" Logo" />
   </a>
-  <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse gap-2">
+  <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse gap-2 nav-mobile">
       <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium r text-sm px-4 py-2 text-center bg-transparent border-2 rounded-full dark:focus:ring-blue-800">Notre blog</button>
       <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm px-4 py-2 text-center bg-transparent rounded-full dark:focus:ring-blue-800 bg-colorPrimary">Se connecter</button>
 

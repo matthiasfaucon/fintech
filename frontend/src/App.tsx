@@ -7,6 +7,8 @@ import PayoutSection from './components/payoutSection'
 import LastSection from './components/lastSection'
 import ReasuranceSection from './components/reasuranceSection'
 import Example from './components/gTrendSection'
+import SubscribeSection from './components/subscribeSection'
+import MediaSection from './components/mediaSection'
 
 function App() {
 
@@ -17,10 +19,12 @@ function App() {
 
       <FirstSection/>
       <CardSection />
-      <Example  height={400} width={100}/>
+      <Example  />
       <PayoutSection />
       <ReasuranceSection />
-      <LastSection/>
+      <MediaSection />
+      <SubscribeSection />
+      
     </div>
 
     <Footer/>
