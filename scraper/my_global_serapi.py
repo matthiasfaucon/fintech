@@ -4,6 +4,7 @@ import feedparser
 from textblob import TextBlob
 from requests.exceptions import RetryError, HTTPError
 from serpapi import GoogleSearch
+import pytz
 
 results = {}
 
@@ -29,22 +30,23 @@ def count_mentions(url, keyword, tabSentiments):
             blob = TextBlob(entry.summary)
             sentiment = blob.sentiment
             tabSentiments.append(sentiment)
-            print(tabSentiments)
 
-    print(mentions_count)
     # Retourner le nombre de mentions
     return mentions_count
 
 # Fonction pour obtenir le nombre de mentions d'un mot clé à partir de Google Trends
 def get_google_trends_occurrence(keyword):
     
-    heure_actuelle = datetime.now().time()
-    # Affichez l'heure
-    print("L'heure actuelle est :", heure_actuelle)
-    # Construire la requête pour aujourd'hui
+    # Obtenez le fuseau horaire pour la France
+    tz_paris = pytz.timezone('Europe/Paris')
+
+    # Obtenez l'offset horaire actuel (prend en compte l'heure d'été)
+    offset_hours = str(tz_paris.utcoffset(datetime.now()).seconds // 3600)
+    print(offset_hours)
+
     params = {
         "engine": "google_trends",
-        "tz": "-1",
+        "tz": offset_hours,
         "q": keyword,
         "geo": "FR",
         "cat": "1138",
@@ -55,10 +57,11 @@ def get_google_trends_occurrence(keyword):
 
     search = GoogleSearch(params)
     results = search.get_dict()
-    print(results)
     data_google_trends = results['interest_over_time']['timeline_data']
     # Assuming 'data_google_trends' is your list of dictionaries
     keyword_count_google_trends = sum(int(entry['values'][0]['value']) if entry['values'][0]['value'].isdigit() else 0 for entry in data_google_trends)
+    print(keyword)
+    print(keyword_count_google_trends)
 
     return keyword_count_google_trends, data_google_trends
 
@@ -148,7 +151,6 @@ def get_data_for_keywords(keywords):
 
     # Parcourir chaque mot clé
     for keyword in keywords:
-        print(keyword)
         keyword_count_rss = 0
         # Parcourir chaque lien RSS
         for url in tabLinks:
@@ -160,12 +162,9 @@ def get_data_for_keywords(keywords):
         # Ajouter le nombre de mentions du mot clé à partir de Google Trends à la somme totale
         total_mentions = keyword_count_rss + keyword_count_google_trends
 
-        print("Total mentions: " + str(total_mentions))
-
         # Analyse de sentiment avec TextBlob
         average_polarity = 0
         average_subjectivity = 0
-        print(tab_sentiments)
         if tab_sentiments[keyword]:
             average_polarity = sum(sentiment.polarity for sentiment in tab_sentiments[keyword]) / len(tab_sentiments[keyword])
             average_subjectivity = sum(sentiment.subjectivity for sentiment in tab_sentiments[keyword]) / len(tab_sentiments[keyword])

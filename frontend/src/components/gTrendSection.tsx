@@ -5,7 +5,7 @@ const GraphiqueActions = () => {
 
   const customTheme = buildChartTheme({
     // colors
-    backgroundColor: '#fff',
+    backgroundColor: '#242430',
     colors: ['#FFD700'], // categorical colors, mapped to series via `dataKey`s
 
     // lines
@@ -23,7 +23,9 @@ const GraphiqueActions = () => {
       fontSize: 12,
     },
 
-    svgLabelBig: { fill: '#1d1b38', fontSize: 14, fontWeight: 600 },
+    svgLabelBig: {
+      fill: '#fff', fontSize: 14, fontWeight: 600,
+    },
 
     // grid
     gridColor: '#3E3F47',
@@ -54,7 +56,6 @@ const GraphiqueActions = () => {
         updatedData[type] = data.data[type][0]['google_trends'].map(entry => {
           const originalDate = new Date(parseInt(entry.timestamp) * 1000);
           const modifiedDate = new Date(originalDate);
-          // modifiedDate.setHours(originalDate.getHours() + 1);
 
           return {
             date: modifiedDate,
@@ -100,9 +101,9 @@ const GraphiqueActions = () => {
       <h1 className="h2-title leading-none tracking-tight text-gray-900 dark:text-white pb-5">Maîtrisez le marché</h1>
       <p className="pb-10 text-lg font-normal text-[#E5E6ED] lg:text-2xl sm:px-16 xl:px-48 dark:text-gray-400">Notre tableau de bord transmute données<br /> complexes en stratégies de trading gagnantes</p>
       <div className="flex flex-col bg-[#242430] p-10">
-        <div class="flex justify-between">
+        <div className="flex justify-between">
           <div>
-            <h1 class="text-2xl font-medium">Google Trends</h1>
+            <h1 className="text-2xl font-medium">Google Trends</h1>
           </div>
           <div className="min-w-min flex self-end mb-4">
             <select
@@ -119,7 +120,7 @@ const GraphiqueActions = () => {
         </div>
         <XYChart
           height={400}
-          xScale={{ type: 'time' }}
+          xScale={{ type: 'utc' }}
           yScale={{ type: 'linear' }}
           margin={{ top: 40, right: 40, bottom: 60, left: 60 }}
           theme={
@@ -127,20 +128,20 @@ const GraphiqueActions = () => {
           }
         >
           <Grid columns={false} numTicks={5} />
-          <Axis orientation="bottom" numTicks={4} />
-          <Axis orientation="left" numTicks={4} />
+          <Axis orientation="bottom" numTicks={4} label="Heure UTC" />
+          <Axis orientation="left" numTicks={4} label="Mentions" />
           <AreaSeries data={transformedData[selectedType]} xAccessor={(d) => d.date} yAccessor={(d) => d.value} />
           <Tooltip
             showHorizontalCrosshair={false}
             showVerticalCrosshair={true}
-            snapTooltipToDatumX={true}
-            snapTooltipToDatumY={true}
+            snapTooltipToDatumX={false}
+            snapTooltipToDatumY={false}
             renderTooltip={({ tooltipData }) => {
               if (!tooltipData) return null;
               const date = tooltipData.nearestDatum?.datum?.date.toLocaleString();
               const value = tooltipData.nearestDatum?.datum?.value;
               return (
-                <div style={{ backgroundColor: '#fff', padding: '8px', border: '1px solid #fff' }}>
+                <div style={{ backgroundColor: '', padding: '15px' }}>
                   <p>Date: {date}</p>
                   <p>Value: {value}</p>
                 </div>
