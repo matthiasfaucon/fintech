@@ -108,6 +108,11 @@ footer{
   width: fit-content;
   padding: 2rem;
 
+
+}
+
+.icon-action{
+  max-width: 45px;
 }
 
 .title-or{
