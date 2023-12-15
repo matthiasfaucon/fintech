@@ -17,7 +17,7 @@ const FirstSection = () => {
           </div>
           <div className="flex flex-row justify-center pt-14 items-center gap-24 flex-wrap reasurance-first-row">
             
-              <div className="flex justify-center flex-col items-center">
+              <div className="flex justify-center flex-col items-center gap-4">
                   <div className="reasurance-button">
                   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="37" viewBox="0 0 30 37" fill="none">
                     <path d="M23.3175 13.4041V9.42808C23.3175 4.77425 19.5812 1.00008 14.974 1.00008C10.3669 0.979712 6.61587 4.73536 6.5957 9.39104V9.42808V13.4041" stroke="#FFD700" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -28,7 +28,7 @@ const FirstSection = () => {
                  
                   <span>Aucune carte de crédit requise</span>
               </div>
-              <div className="flex justify-center flex-col items-center">
+              <div className="flex justify-center flex-col items-center gap-4">
                   <div className="reasurance-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="38" height="35" viewBox="0 0 38 35" fill="none">
                       <path d="M36.672 22.3924H29.2501C26.525 22.3907 24.3161 20.1836 24.3145 17.4584C24.3145 14.7333 26.525 12.5261 29.2501 12.5244H36.672" stroke="#FFD700" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -40,7 +40,7 @@ const FirstSection = () => {
                  
                   <span>Gratuit pendant 30 jours</span>
               </div>
-              <div className="flex justify-center flex-col items-center">
+              <div className="flex justify-center flex-col items-center gap-4">
                   <div className="reasurance-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="38" height="35" viewBox="0 0 38 35" fill="none">
                       <path d="M36.672 22.3924H29.2501C26.525 22.3907 24.3161 20.1836 24.3145 17.4584C24.3145 14.7333 26.525 12.5261 29.2501 12.5244H36.672" stroke="#FFD700" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
