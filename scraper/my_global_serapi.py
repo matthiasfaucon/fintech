@@ -52,7 +52,7 @@ def get_google_trends_occurrence(keyword):
         "cat": "1138",
         "date": "now 1-H",
         "data_type": "TIMESERIES",
-        "api_key": "8b44f3cbcb9de1f0945bf35874036fe5c72cd71cdd932154fef0b890d20eb590"
+        "api_key": "8a547b124e0c6f4d841e491cdb5b3f42963fc26b8fcfb0dba371b77a7a23bffd"
     }
 
     search = GoogleSearch(params)

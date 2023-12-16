@@ -31,8 +31,8 @@ const FirstSection = () => {
           <div className="flex justify-center flex-col items-center">
             <div className="reasurance-button">
               <svg width="45" height="44" viewBox="0 0 45 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M35.0852 9.39378C35.8863 9.67428 36.4217 10.4296 36.4217 11.2784V23.6956C36.4217 27.1661 35.1603 30.4789 32.9328 33.0456C31.8127 34.3381 30.3955 35.3446 28.8903 36.1586L22.3673 39.6823L15.8333 36.1568C14.3263 35.3428 12.9073 34.3381 11.7853 33.0438C9.55602 30.4771 8.29102 27.1624 8.29102 23.6883V11.2784C8.29102 10.4296 8.82635 9.67428 9.62752 9.39378L21.6945 5.15328C22.1235 5.00294 22.591 5.00294 23.0182 5.15328L35.0852 9.39378Z" stroke="#FFD700" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M17.5898 21.8492L21.0585 25.3197L28.2048 18.1733" stroke="#FFD700" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path fillRule="evenodd" clipRule="evenodd" d="M35.0852 9.39378C35.8863 9.67428 36.4217 10.4296 36.4217 11.2784V23.6956C36.4217 27.1661 35.1603 30.4789 32.9328 33.0456C31.8127 34.3381 30.3955 35.3446 28.8903 36.1586L22.3673 39.6823L15.8333 36.1568C14.3263 35.3428 12.9073 34.3381 11.7853 33.0438C9.55602 30.4771 8.29102 27.1624 8.29102 23.6883V11.2784C8.29102 10.4296 8.82635 9.67428 9.62752 9.39378L21.6945 5.15328C22.1235 5.00294 22.591 5.00294 23.0182 5.15328L35.0852 9.39378Z" stroke="#FFD700" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M17.5898 21.8492L21.0585 25.3197L28.2048 18.1733" stroke="#FFD700" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
 
             </div>
