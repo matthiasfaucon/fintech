@@ -307,8 +307,8 @@ export default function ExampleControls({ children }: ControlsProps) {
             ? dataSmallMissingValues
             : dataSmall
           : missingValues
-          ? dataMissingValues
-          : data,
+            ? dataMissingValues
+            : data,
         editAnnotationLabelPosition,
         numTicks,
         renderBarGroup: renderBarStackOrGroup === 'bargroup',

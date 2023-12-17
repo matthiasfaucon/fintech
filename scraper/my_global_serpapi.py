@@ -68,6 +68,7 @@ def get_google_trends_occurrence(keyword):
 def get_data_for_keywords(keywords):
     # Liste des liens RSS
     tabLinks = [
+        #! Les Echos => Article Français
         # "https://services.lesechos.fr/rss/les-echos-economie.xml",
         # "https://services.lesechos.fr/rss/les-echos-finance-marches.xml",
         # "https://services.lesechos.fr/rss/les-echos-entreprises.xml",
@@ -80,66 +81,67 @@ def get_data_for_keywords(keywords):
         # "https://services.lesechos.fr/rss/les-echos-start-up.xml",
         # "https://services.lesechos.fr/rss/les-echos-tech-medias.xml"
 
-        "https://fr.investing.com/rss/news_159.rss",
+        #! Investing => Article Anglais
+        "https://www.investing.com/rss/news_159.rss",
 
-        "https://fr.investing.com/rss/market_overview.rss",
-        "https://fr.investing.com/rss/market_overview_Technical.rss",
-        "https://fr.investing.com/rss/market_overview_Fundamental.rss",
-        "https://fr.investing.com/rss/market_overview_Opinion.rss",
-        "https://fr.investing.com/rss/market_overview_investing_ideas.rss",
+        "https://www.investing.com/rss/market_overview.rss",
+        "https://www.investing.com/rss/market_overview_Technical.rss",
+        "https://www.investing.com/rss/market_overview_Fundamental.rss",
+        "https://www.investing.com/rss/market_overview_Opinion.rss",
+        "https://www.investing.com/rss/market_overview_investing_ideas.rss",
 
-        "https://fr.investing.com/rss/news_302.rss",
+        "https://www.investing.com/rss/news_302.rss",
 
-        "https://fr.investing.com/rss/forex.rss",
-        "https://fr.investing.com/rss/forex_Technical.rss",
-        "https://fr.investing.com/rss/forex_Fundamental.rss",
-        "https://fr.investing.com/rss/forex_Opinion.rss",
-        "https://fr.investing.com/rss/forex_Signals.rss",
+        "https://www.investing.com/rss/forex.rss",
+        "https://www.investing.com/rss/forex_Technical.rss",
+        "https://www.investing.com/rss/forex_Fundamental.rss",
+        "https://www.investing.com/rss/forex_Opinion.rss",
+        "https://www.investing.com/rss/forex_Signals.rss",
 
-        "https://fr.investing.com/rss/286.rss",
-        "https://fr.investing.com/rss/290.rss",
+        "https://www.investing.com/rss/286.rss",
+        "https://www.investing.com/rss/290.rss",
 
-        # "https://fr.investing.com/rss/stock.rss",
-        # "https://fr.investing.com/rss/stock_Technical.rss",
-        # "https://fr.investing.com/rss/stock_Fundamental.rss",
-        # "https://fr.investing.com/rss/stock_Opinion.rss",
-        # "https://fr.investing.com/rss/stock_stock_picks.rss",
-        # "https://fr.investing.com/rss/stock_Stocks.rss",
-        # "https://fr.investing.com/rss/stock_Indices.rss",
-        # "https://fr.investing.com/rss/stock_Futures.rss",
-        # "https://fr.investing.com/rss/stock_Options.rss",
+        # "https://www.investing.com/rss/stock.rss",
+        # "https://www.investing.com/rss/stock_Technical.rss",
+        # "https://www.investing.com/rss/stock_Fundamental.rss",
+        # "https://www.investing.com/rss/stock_Opinion.rss",
+        # "https://www.investing.com/rss/stock_stock_picks.rss",
+        # "https://www.investing.com/rss/stock_Stocks.rss",
+        # "https://www.investing.com/rss/stock_Indices.rss",
+        # "https://www.investing.com/rss/stock_Futures.rss",
+        # "https://www.investing.com/rss/stock_Options.rss",
 
-        # "https://fr.investing.com/rss/commodities.rss",
-        # "https://fr.investing.com/rss/commodities_Technical.rss",
-        # "https://fr.investing.com/rss/commodities_Fundamental.rss",
-        # "https://fr.investing.com/rss/commodities_Opinion.rss",
-        # "https://fr.investing.com/rss/commodities_Strategy.rss",
-        # "https://fr.investing.com/rss/commodities_Metals.rss",
-        # "https://fr.investing.com/rss/commodities_Energy.rss",
-        # "https://fr.investing.com/rss/commodities_Agriculture.rss",
+        # "https://www.investing.com/rss/commodities.rss",
+        # "https://www.investing.com/rss/commodities_Technical.rss",
+        # "https://www.investing.com/rss/commodities_Fundamental.rss",
+        # "https://www.investing.com/rss/commodities_Opinion.rss",
+        # "https://www.investing.com/rss/commodities_Strategy.rss",
+        # "https://www.investing.com/rss/commodities_Metals.rss",
+        # "https://www.investing.com/rss/commodities_Energy.rss",
+        # "https://www.investing.com/rss/commodities_Agriculture.rss",
 
-        # "https://fr.investing.com/rss/bonds.rss",
-        # "https://fr.investing.com/rss/bonds_Technical.rss",
-        # "https://fr.investing.com/rss/bonds_Fundamental.rss",
-        # "https://fr.investing.com/rss/bonds_Opinion.rss",
-        # "https://fr.investing.com/rss/bonds_Strategy.rss",
-        # "https://fr.investing.com/rss/bonds_Government.rss",
-        # "https://fr.investing.com/rss/bonds_Corporate.rss"
+        # "https://www.investing.com/rss/bonds.rss",
+        # "https://www.investing.com/rss/bonds_Technical.rss",
+        # "https://www.investing.com/rss/bonds_Fundamental.rss",
+        # "https://www.investing.com/rss/bonds_Opinion.rss",
+        # "https://www.investing.com/rss/bonds_Strategy.rss",
+        # "https://www.investing.com/rss/bonds_Government.rss",
+        # "https://www.investing.com/rss/bonds_Corporate.rss"
 
-        # "https://fr.investing.com/rss/news.rss",
-        # "https://fr.investing.com/rss/news_2.rss",
-        # "https://fr.investing.com/rss/news_285.rss",
-        # "https://fr.investing.com/rss/news_301.rss",
-        # "https://fr.investing.com/rss/news_462.rss",
-        # "https://fr.investing.com/rss/news_1.rss",
-        # "https://fr.investing.com/rss/news_477.rss",
-        # "https://fr.investing.com/rss/news_11.rss",
-        # "https://fr.investing.com/rss/news_25.rss",
-        # "https://fr.investing.com/rss/news_95.rss",
-        # "https://fr.investing.com/rss/news_14.rss",
-        # "https://fr.investing.com/rss/news_287.rss",
+        # "https://www.investing.com/rss/news.rss",
+        # "https://www.investing.com/rss/news_2.rss",
+        # "https://www.investing.com/rss/news_285.rss",
+        # "https://www.investing.com/rss/news_301.rss",
+        # "https://www.investing.com/rss/news_462.rss",
+        # "https://www.investing.com/rss/news_1.rss",
+        # "https://www.investing.com/rss/news_477.rss",
+        # "https://www.investing.com/rss/news_11.rss",
+        # "https://www.investing.com/rss/news_25.rss",
+        # "https://www.investing.com/rss/news_95.rss",
+        # "https://www.investing.com/rss/news_14.rss",
+        # "https://www.investing.com/rss/news_287.rss",
 
-        "https://fr.investing.com/rss/central_banks.rss",
+        "https://www.investing.com/rss/central_banks.rss",
     ]
 
     # Supprimer les doublons de la liste des liens
@@ -182,10 +184,7 @@ def get_data_for_keywords(keywords):
 def getDatas():
     # Liste des mots clés à analyser
     keywords_to_analyze = ["bitcoin", "gold", "petrol", "s&p 500"]
-    # keywords_to_analyze = ["bitcoin", "gold"]
-    # keywords_to_analyze = ["bitcoin"]
 
-    # Exécutez la fonction
     results = get_data_for_keywords(keywords_to_analyze)
 
     # Afficher les résultats

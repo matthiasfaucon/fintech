@@ -1,6 +1,6 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
-import my_global_serapi
+import my_global_serpapi as my_global_serpapi
 
 app = Flask(__name__)
 CORS(app)
@@ -9,7 +9,7 @@ CORS(app)
 @app.route('/api/data', methods=['GET'])
 def get_api_data():
     # Logique de traitement des données
-    data = my_global_serapi.getDatas()
+    data = my_global_serpapi.getDatas()
     return jsonify({'data': data})
     
 if __name__ == '__main__':
